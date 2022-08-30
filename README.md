@@ -27,7 +27,6 @@ https://api.chapa.co/v1
 | `currency` | `string` | **Required**. The currency in which all the charges are made. i.e ETB, USD |
 | `callback_url`| `string` |  The URL to redirect the customer to after payment is done.|
 | `customization[title]`| `string` |  The customizations field (optional) allows you to customize the look and feel of the payment modal.|
-| `email`    | `string` | **Required**. A customer’s email. address. |
 
 #### SDK requires additional parameter for fallBack page which is named route which will help you reroute webview after payment completed, on internate disconnected and many more
 
