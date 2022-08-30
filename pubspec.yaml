@@ -1,7 +1,7 @@
 name: chapasdk
-description: A new Flutter project.
+description: Chapa flutter library to accept payment via Card, Bank or telebirr etc.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Chapa/chapa-flutter
 
 environment:
   sdk: ">=2.15.0<3.0.0"

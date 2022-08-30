@@ -27,3 +27,7 @@
 .dart_tool/
 .packages
 build/
+.pub/
+.gradle
+/example/ios/Podfile.lock
+/coverage/

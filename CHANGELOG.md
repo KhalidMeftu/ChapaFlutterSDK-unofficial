@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Intital version of Chapa's flutter library - Aug 29, 2022
