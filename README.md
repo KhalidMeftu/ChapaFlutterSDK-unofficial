@@ -27,6 +27,7 @@ https://api.chapa.co/v1
 | `currency` | `string` | **Required**. The currency in which all the charges are made. i.e ETB, USD |
 | `callback_url`| `string` |  The URL to redirect the customer to after payment is done.|
 | `customization[title]`| `string` |  The customizations field (optional) allows you to customize the look and feel of the payment modal.|
+| `email`    | `string` | **Required**. A customer’s email. address. |
 
 #### SDK requires additional parameter for fallBack page which is named route which will help you reroute webview after payment completed, on internate disconnected and many more
 
@@ -37,6 +38,8 @@ https://api.chapa.co/v1
 | `namedRouteFallBack`      | `string` | **Required by the sdk**. This will accepted route name in String, After successfull transaction the app will direct to this page with neccessary information for flutter developers to update the backend or to regenerate new transaction refrence. |
 
 
+
+
 ## Installation
 
 Installation instructions comming soon its better if you install it from pub dev
@@ -45,6 +48,7 @@ Installation instructions comming soon its better if you install it from pub dev
     
 ## Usage/Example
 
+```flutter
 import 'package:chapasdk/chapasdk.dart';
 
 
