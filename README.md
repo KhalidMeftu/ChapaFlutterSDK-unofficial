@@ -1,39 +1,76 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+# Chapa Flutter SDK
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+Chapa Flutter sdk for Chapa payment API. It is not official and is not supported by Chapa. It is provided as-is. The main features of this library is it supports connectivity tests, auto reroutes, parameter checks for payment options.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
-## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## API Reference
 
-## Getting started
+#### Create new transaction from mobile end point
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Base end point
+https://api.chapa.co/v1
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```http
+  POST /transaction/mobile-initialize
 ```
 
-## Additional information
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `key`      | `string` | **Required**. This will be your public key from Chapa. When on test mode use the test key, and when on live mode use the live key. |
+| `email`    | `string` | **Required**. A customer’s email. address. |
+| `amount`   | `string` | **Required**. The amount you will be charging your customer. |
+| `first_name` | `string` | **Required**. A customer’s first name. |
+| `last_name`      | `string` | **Required**. Acustomer's last name. |
+| `tx_ref`   | `string` | **Required**. A unique reference given to each transaction. |
+| `currency` | `string` | **Required**. The currency in which all the charges are made. i.e ETB, USD |
+| `callback_url`| `string` |  The URL to redirect the customer to after payment is done.|
+| `customization[title]`| `string` |  The customizations field (optional) allows you to customize the look and feel of the payment modal.|
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+#### SDK requires additional parameter for fallBack page which is named route which will help you reroute webview after payment completed, on internate disconnected and many more
+
+
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `namedRouteFallBack`      | `string` | **Required by the sdk**. This will accepted route name in String, After successfull transaction the app will direct to this page with neccessary information for flutter developers to update the backend or to regenerate new transaction refrence. |
+
+
+
+
+## Installation
+
+Installation instructions comming soon its better if you install it from pub dev
+
+
+
+## Usage/Example
+
+```flutter
+import 'package:chapasdk/chapasdk.dart';
+
+
+Chapa.paymentParameters(
+        context: context, // context 
+        publicKey: 'CHASECK_TEST--------------',
+        currency: 'ETB',
+        amount: '200',
+        email: 'xyz@gmail.com',
+        firstName: 'fullName',
+        lastName: 'lastName',
+        txRef: '34TXTHHgb',
+        title: 'title',
+        desc:'desc',
+        namedRouteFallBack: '/second', // fall back route name
+       );
+```
+
+
+## FAQ
+
+#### Should my fallBack route should be named route?
+
+Answer Yes, the fallBackRoute comes with an information such as payment is successfull, user cancelled payment and connectivity issue messages. Those informations will help you to update your backend, to generate new transaction refrence.
+
+

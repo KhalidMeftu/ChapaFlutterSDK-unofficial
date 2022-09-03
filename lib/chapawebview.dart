@@ -18,7 +18,7 @@ class ChapaWebView extends StatefulWidget {
 }
 
 class _ChapaWebViewState extends State<ChapaWebView> {
-  late InAppWebViewController _webViewController;
+  late InAppWebViewController webViewController;
   String url = "";
   double progress = 0;
   StreamSubscription? connection;
@@ -27,6 +27,7 @@ class _ChapaWebViewState extends State<ChapaWebView> {
   @override
   void initState() {
     checkConnectivity();
+
     super.initState();
   }
 
@@ -72,8 +73,8 @@ class _ChapaWebViewState extends State<ChapaWebView> {
 
   @override
   void dispose() {
-    connection!.cancel();
     super.dispose();
+    connection!.cancel();
   }
 
   @override
@@ -86,12 +87,12 @@ class _ChapaWebViewState extends State<ChapaWebView> {
               initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
               onWebViewCreated: (controller) {
                 setState(() {
-                  _webViewController = controller;
+                  webViewController = controller;
                 });
                 controller.addJavaScriptHandler(
                     handlerName: "buttonState",
                     callback: (args) async {
-                      _webViewController = controller;
+                      webViewController = controller;
 
                       if (args[2][1] == 'CancelbuttonClicked') {
                         exitPaymentPage('paymentCancelled');
@@ -102,10 +103,13 @@ class _ChapaWebViewState extends State<ChapaWebView> {
               },
               onUpdateVisitedHistory: (InAppWebViewController controller,
                   Uri? uri, androidIsReload) {
+                if (uri.toString() == 'https://chapa.co') {
+                  exitPaymentPage('paymentSuccessful');
+                }
                 controller.addJavaScriptHandler(
                     handlerName: "handlerFooWithArgs",
                     callback: (args) async {
-                      _webViewController = controller;
+                      webViewController = controller;
                       if (args[2][1] == 'failed') {
                         await delay();
                         exitPaymentPage('paymentFailed');
@@ -120,7 +124,7 @@ class _ChapaWebViewState extends State<ChapaWebView> {
                 controller.addJavaScriptHandler(
                     handlerName: "buttonState",
                     callback: (args) async {
-                      _webViewController = controller;
+                      webViewController = controller;
 
                       if (args[2][1] == 'CancelbuttonClicked') {
                         exitPaymentPage('paymentCancelled');
