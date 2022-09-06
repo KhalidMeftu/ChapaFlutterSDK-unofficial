@@ -6,3 +6,8 @@
 
 * Update homepage URL
 * Removing comments from the pubspec
+
+## 0.0.3
+
+* Update readme
+* Add Examples
