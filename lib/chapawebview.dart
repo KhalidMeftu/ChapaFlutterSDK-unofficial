@@ -106,6 +106,10 @@ class _ChapaWebViewState extends State<ChapaWebView> {
                 if (uri.toString() == 'https://chapa.co') {
                   exitPaymentPage('paymentSuccessful');
                 }
+                if (uri.toString().contains('checkout/payment-receipt/')) {
+                    await delay();
+                    exitPaymentPage('paymentSuccessful');
+                  }
                 controller.addJavaScriptHandler(
                     handlerName: "handlerFooWithArgs",
                     callback: (args) async {
