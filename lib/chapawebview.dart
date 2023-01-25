@@ -8,9 +8,16 @@ import 'constants/common.dart';
 class ChapaWebView extends StatefulWidget {
   final String url;
   final String fallBackNamedUrl;
+  final String transactionReference;
+  final String amountPaid;
+
+  //ttx
+  //amount
+  //description
+  //
 
   const ChapaWebView(
-      {Key? key, required this.url, required this.fallBackNamedUrl})
+      {Key? key, required this.url, required this.fallBackNamedUrl, required this.transactionReference, required this.amountPaid})
       : super(key: key);
 
   @override
@@ -67,7 +74,7 @@ class _ChapaWebViewState extends State<ChapaWebView> {
     Navigator.pushNamed(
       context,
       widget.fallBackNamedUrl,
-      arguments: {'message': message},
+      arguments: {'message': message, 'transactionReference':widget.transactionReference,'paidAmount':widget.amountPaid},
     );
   }
 
@@ -102,7 +109,7 @@ class _ChapaWebViewState extends State<ChapaWebView> {
                     });
               },
               onUpdateVisitedHistory: (InAppWebViewController controller,
-                  Uri? uri, androidIsReload) {
+                  Uri? uri, androidIsReload) async {
                 if (uri.toString() == 'https://chapa.co') {
                   exitPaymentPage('paymentSuccessful');
                 }

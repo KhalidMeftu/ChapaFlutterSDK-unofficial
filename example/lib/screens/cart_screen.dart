@@ -21,6 +21,8 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   void initState() {
+
+    // get data after payment charm update your database now
     Future.delayed(Duration.zero,(){
       setState(() {
         if(ModalRoute.of(context)?.settings.arguments!= null)
@@ -28,6 +30,8 @@ class _CartScreenState extends State<CartScreen> {
             args=ModalRoute.of(context)?.settings.arguments;
             print('message after payment');
             print(args['message']);
+            print(args['transactionReference']);
+            print(args['paidAmount']);
 
           }
       });

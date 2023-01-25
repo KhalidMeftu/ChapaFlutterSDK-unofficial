@@ -48,6 +48,8 @@ Future<String> intilizeMyPayment(
           builder: (context) => ChapaWebView(
                 url: res.data.checkoutUrl.toString(),
                 fallBackNamedUrl: fallBackNamedRoute,
+                transactionReference: transactionReference,
+                amountPaid: amount,
               )),
     );
 
