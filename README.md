@@ -19,12 +19,13 @@ https://api.chapa.co/v1
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `key`      | `string` | **Required**. This will be your public key from Chapa. When on test mode use the test key, and when on live mode use the live key. |
-| `email`    | `string` | **Required**. A customer’s email. address. |
+| `email`    | `string` | **Required**. A customer’s email address. |
 | `amount`   | `string` | **Required**. The amount you will be charging your customer. |
 | `first_name` | `string` | **Required**. A customer’s first name. |
 | `last_name`      | `string` | **Required**. Acustomer's last name. |
 | `tx_ref`   | `string` | **Required**. A unique reference given to each transaction. |
 | `currency` | `string` | **Required**. The currency in which all the charges are made. i.e ETB, USD |
+| `phone`    | `digit` |  A customer’s phone number. |
 | `callback_url`| `string` |  The URL to redirect the customer to after payment is done.|
 | `customization[title]`| `string` |  The customizations field (optional) allows you to customize the look and feel of the payment modal.|
 
@@ -57,6 +58,7 @@ Chapa.paymentParameters(
         currency: 'ETB',
         amount: '200',
         email: 'xyz@gmail.com',
+        phone: '911223344',
         firstName: 'fullName',
         lastName: 'lastName',
         txRef: '34TXTHHgb',
@@ -71,6 +73,6 @@ Chapa.paymentParameters(
 
 #### Should my fallBack route should be named route?
 
-Answer Yes, the fallBackRoute comes with an information such as payment is successfull, user cancelled payment and connectivity issue messages. Those informations will help you to update your backend, to generate new transaction refrence.
+Answer Yes, the fallBackRoute comes with an information such as payment is successfull, user cancelled payment and connectivity issue messages. Those informations will help you to update your backend, to generate new transaction reference.
 
 
