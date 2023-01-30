@@ -6,5 +6,5 @@ class ChapaStrings {
   static const firstNameRequired = 'First Name is required';
   static const lastNameRequired = 'First Name is required';
   static const transactionRefrenceRequired = 'Transaction is required';
-  static const connectionError='Connectivity Issue';
+  static const connectionError = 'Connectivity Issue';
 }

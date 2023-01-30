@@ -17,7 +17,11 @@ class ChapaWebView extends StatefulWidget {
   //
 
   const ChapaWebView(
-      {Key? key, required this.url, required this.fallBackNamedUrl, required this.transactionReference, required this.amountPaid})
+      {Key? key,
+      required this.url,
+      required this.fallBackNamedUrl,
+      required this.transactionReference,
+      required this.amountPaid})
       : super(key: key);
 
   @override
@@ -74,7 +78,11 @@ class _ChapaWebViewState extends State<ChapaWebView> {
     Navigator.pushNamed(
       context,
       widget.fallBackNamedUrl,
-      arguments: {'message': message, 'transactionReference':widget.transactionReference,'paidAmount':widget.amountPaid},
+      arguments: {
+        'message': message,
+        'transactionReference': widget.transactionReference,
+        'paidAmount': widget.amountPaid
+      },
     );
   }
 
@@ -114,9 +122,9 @@ class _ChapaWebViewState extends State<ChapaWebView> {
                   exitPaymentPage('paymentSuccessful');
                 }
                 if (uri.toString().contains('checkout/payment-receipt/')) {
-                    await delay();
-                    exitPaymentPage('paymentSuccessful');
-                  }
+                  await delay();
+                  exitPaymentPage('paymentSuccessful');
+                }
                 controller.addJavaScriptHandler(
                     handlerName: "handlerFooWithArgs",
                     callback: (args) async {

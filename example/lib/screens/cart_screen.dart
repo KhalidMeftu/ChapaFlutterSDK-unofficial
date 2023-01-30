@@ -5,6 +5,7 @@ import 'package:shopping_cart_app/database/db_helper.dart';
 import 'package:shopping_cart_app/model/cart_model.dart';
 import 'package:shopping_cart_app/provider/cart_provider.dart';
 import 'package:chapasdk/chapasdk.dart';
+
 class CartScreen extends StatefulWidget {
   const CartScreen({
     Key? key,
@@ -21,21 +22,17 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   void initState() {
-
     // get data after payment charm update your database now
-    Future.delayed(Duration.zero,(){
+    Future.delayed(Duration.zero, () {
       setState(() {
-        if(ModalRoute.of(context)?.settings.arguments!= null)
-          {
-            args=ModalRoute.of(context)?.settings.arguments;
-            print('message after payment');
-            print(args['message']);
-            print(args['transactionReference']);
-            print(args['paidAmount']);
-
-          }
+        if (ModalRoute.of(context)?.settings.arguments != null) {
+          args = ModalRoute.of(context)?.settings.arguments;
+          print('message after payment');
+          print(args['message']);
+          print(args['transactionReference']);
+          print(args['paidAmount']);
+        }
       });
-
     });
 
     super.initState();
@@ -254,8 +251,8 @@ class _CartScreenState extends State<CartScreen> {
       ),
       bottomNavigationBar: InkWell(
         onTap: () {
-        ///
-         Chapa.paymentParameters(
+          ///
+          Chapa.paymentParameters(
             context: context, // context
             publicKey: 'CHASECK_TEST-',
             currency: 'etb',
@@ -265,7 +262,7 @@ class _CartScreenState extends State<CartScreen> {
             lastName: 'lastName',
             txRef: '55ttyyy',
             title: 'title',
-            desc:'desc',
+            desc: 'desc',
             namedRouteFallBack: '/checkoutPage', // fall back route name
           );
         },

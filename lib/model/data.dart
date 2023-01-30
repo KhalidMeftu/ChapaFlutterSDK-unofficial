@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-ResponseData dataFromJson(String str) => ResponseData.fromJson(json.decode(str));
+ResponseData dataFromJson(String str) =>
+    ResponseData.fromJson(json.decode(str));
 
 String dataToJson(ResponseData data) => json.encode(data.toJson());
 
@@ -16,16 +17,16 @@ class ResponseData {
   DataClass data;
 
   factory ResponseData.fromJson(Map<String, dynamic> json) => ResponseData(
-    message: json["message"],
-    status: json["status"],
-    data: DataClass.fromJson(json["data"]),
-  );
+        message: json["message"],
+        status: json["status"],
+        data: DataClass.fromJson(json["data"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "message": message,
-    "status": status,
-    "data": data.toJson(),
-  };
+        "message": message,
+        "status": status,
+        "data": data.toJson(),
+      };
 }
 
 class DataClass {
@@ -36,10 +37,10 @@ class DataClass {
   String checkoutUrl;
 
   factory DataClass.fromJson(Map<String, dynamic> json) => DataClass(
-    checkoutUrl: json["checkout_url"],
-  );
+        checkoutUrl: json["checkout_url"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "checkout_url": checkoutUrl,
-  };
+        "checkout_url": checkoutUrl,
+      };
 }

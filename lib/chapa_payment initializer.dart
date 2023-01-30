@@ -31,11 +31,9 @@ class Chapa {
   }) {
     _validateKeys();
     currency = currency.toUpperCase();
-    if(_validateKeys())
-      {
-        initatePayment();
-      }
-
+    if (_validateKeys()) {
+      initatePayment();
+    }
   }
 
   bool _validateKeys() {
@@ -44,12 +42,12 @@ class Chapa {
       return false;
     }
     if (currency.trim().isEmpty) {
-       showErrorToast(ChapaStrings.currencyRequired);
-       return false;
+      showErrorToast(ChapaStrings.currencyRequired);
+      return false;
     }
     if (amount.trim().isEmpty) {
-       showErrorToast(ChapaStrings.amountRequired);
-       return false;
+      showErrorToast(ChapaStrings.amountRequired);
+      return false;
     }
     if (email.trim().isEmpty) {
       showErrorToast(ChapaStrings.emailRequired);
@@ -57,23 +55,23 @@ class Chapa {
     }
 
     if (firstName.trim().isEmpty) {
-       showErrorToast(ChapaStrings.firstNameRequired);
-       return false;
+      showErrorToast(ChapaStrings.firstNameRequired);
+      return false;
     }
     if (lastName.trim().isEmpty) {
-     showErrorToast(ChapaStrings.lastNameRequired);
-     return false;
+      showErrorToast(ChapaStrings.lastNameRequired);
+      return false;
     }
     if (txRef.trim().isEmpty) {
-     showErrorToast(ChapaStrings.transactionRefrenceRequired);
-     return false;
+      showErrorToast(ChapaStrings.transactionRefrenceRequired);
+      return false;
     }
 
     return true;
   }
 
-  void initatePayment() async{
-       intilizeMyPayment(context, publicKey, email, amount, currency, firstName,
+  void initatePayment() async {
+    intilizeMyPayment(context, publicKey, email, amount, currency, firstName,
         lastName, txRef, title, desc, namedRouteFallBack);
   }
 }

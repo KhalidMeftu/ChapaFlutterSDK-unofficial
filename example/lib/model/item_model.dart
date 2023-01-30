@@ -4,7 +4,11 @@ class Item {
   final int price;
   final String image;
 
-  Item({required this.name, required this.unit, required this.price, required this.image});
+  Item(
+      {required this.name,
+      required this.unit,
+      required this.price,
+      required this.image});
 
   Map toJson() {
     return {
