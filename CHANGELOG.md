@@ -14,3 +14,6 @@
 ## 0.0.4
 
 * Now fallback url comes with transaction refrence and user paid value.
+## 0.0.5 
+
+* Formatting and other minor reported bugs
