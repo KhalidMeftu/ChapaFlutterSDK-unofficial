@@ -1,5 +1,5 @@
 name: chapasdk
-description: Chapa flutter library to accept payment via Card, Bank or telebirr etc.
+description: Chapa flutter library to accept payment via Card, PayPal, Amole, CBEBirr, AwashBirr and/or telebirr etc.
 version: 0.0.5
 homepage: https://github.com/chapa-et/chapa-flutter
 

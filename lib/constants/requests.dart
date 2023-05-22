@@ -11,6 +11,7 @@ Future<String> intilizeMyPayment(
   BuildContext context,
   String authorization,
   String email,
+  String phone,
   String amount,
   String currency,
   String firstName,
@@ -26,7 +27,7 @@ Future<String> intilizeMyPayment(
       'Authorization': 'Bearer $authorization',
     },
     body: {
-      'email': email,
+      'phone_number': phone,
       'amount': amount,
       'currency': currency.toUpperCase(),
       'first_name': firstName,

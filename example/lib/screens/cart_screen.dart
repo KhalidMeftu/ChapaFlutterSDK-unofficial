@@ -258,6 +258,7 @@ class _CartScreenState extends State<CartScreen> {
             currency: 'etb',
             amount: '300',
             email: 'xyz@gmail.com',
+            phone: '911223344',
             firstName: 'testname',
             lastName: 'lastName',
             txRef: '55ttyyy',

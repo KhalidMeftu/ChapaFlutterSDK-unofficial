@@ -9,6 +9,7 @@ class Chapa {
   String amount;
   String currency;
   String email;
+  String phone;
   String firstName;
   String lastName;
   String txRef;
@@ -22,6 +23,7 @@ class Chapa {
     required this.currency,
     required this.amount,
     required this.email,
+    required this.phone,
     required this.firstName,
     required this.lastName,
     required this.txRef,
@@ -49,19 +51,7 @@ class Chapa {
       showErrorToast(ChapaStrings.amountRequired);
       return false;
     }
-    if (email.trim().isEmpty) {
-      showErrorToast(ChapaStrings.emailRequired);
-      return false;
-    }
 
-    if (firstName.trim().isEmpty) {
-      showErrorToast(ChapaStrings.firstNameRequired);
-      return false;
-    }
-    if (lastName.trim().isEmpty) {
-      showErrorToast(ChapaStrings.lastNameRequired);
-      return false;
-    }
     if (txRef.trim().isEmpty) {
       showErrorToast(ChapaStrings.transactionRefrenceRequired);
       return false;
@@ -71,7 +61,7 @@ class Chapa {
   }
 
   void initatePayment() async {
-    intilizeMyPayment(context, publicKey, email, amount, currency, firstName,
-        lastName, txRef, title, desc, namedRouteFallBack);
+    intilizeMyPayment(context, publicKey, email, phone, amount, currency,
+        firstName, lastName, txRef, title, desc, namedRouteFallBack);
   }
 }

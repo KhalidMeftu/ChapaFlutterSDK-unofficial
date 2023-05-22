@@ -19,30 +19,30 @@ https://api.chapa.co/v1
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `key`      | `string` | **Required**. This will be your public key from Chapa. When on test mode use the test key, and when on live mode use the live key. |
-| `email`    | `string` | **Required**. A customer’s email address. |
+| `email`    | `string` | A customer’s email address. |
 | `amount`   | `string` | **Required**. The amount you will be charging your customer. |
-| `first_name` | `string` | **Required**. A customer’s first name. |
-| `last_name`      | `string` | **Required**. Acustomer's last name. |
+| `first_name` | `string` |  A customer’s first name. |
+| `last_name`      | `string` |  A customer's last name. |
 | `tx_ref`   | `string` | **Required**. A unique reference given to each transaction. |
 | `currency` | `string` | **Required**. The currency in which all the charges are made. i.e ETB, USD |
 | `phone`    | `digit` |  A customer’s phone number. |
 | `callback_url`| `string` |  The URL to redirect the customer to after payment is done.|
 | `customization[title]`| `string` |  The customizations field (optional) allows you to customize the look and feel of the payment modal.|
 
-#### SDK requires additional parameter for fallBack page which is named route which will help you reroute webview after payment completed, on internate disconnected and many more
+#### SDK requires additional parameter for fallBack page which is named route which will help you reroute webview after payment completed, on internet disconnected and many more
 
 
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `namedRouteFallBack`      | `string` | **Required by the sdk**. This will accepted route name in String, After successfull transaction the app will direct to this page with neccessary information for flutter developers to update the backend or to regenerate new transaction refrence. |
+| `namedRouteFallBack`      | `string` | **Required by the sdk**. This will accepted route name in String, After successful transaction the app will direct to this page with necessary information for flutter developers to update the backend or to regenerate new transaction reference. |
 
 
 
 
 ## Installation
 
-Installation instructions comming soon its better if you install it from pub dev
+Installation instructions coming soon its better if you install it from pub dev
 
 
 
@@ -73,6 +73,6 @@ Chapa.paymentParameters(
 
 #### Should my fallBack route should be named route?
 
-Answer Yes, the fallBackRoute comes with an information such as payment is successfull, user cancelled payment and connectivity issue messages. Those informations will help you to update your backend, to generate new transaction reference.
+Answer Yes, the fallBackRoute comes with an information such as payment is successful, user cancelled payment and connectivity issue messages. Those information will help you to update your backend, to generate new transaction reference.
 
 
