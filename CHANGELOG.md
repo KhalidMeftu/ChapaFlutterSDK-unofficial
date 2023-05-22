@@ -17,3 +17,7 @@
 ## 0.0.5 
 
 * Formatting and other minor reported bugs
+
+## 0.0.6 
+
+* Update payload to accept `phone_number` and remove required validation from optional parameters.
