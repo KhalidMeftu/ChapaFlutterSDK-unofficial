@@ -58,7 +58,7 @@ Chapa.paymentParameters(
         currency: 'ETB',
         amount: '200',
         email: 'xyz@gmail.com',
-        phone: '911223344',
+        phone: '0911223344',
         firstName: 'fullName',
         lastName: 'lastName',
         txRef: '34TXTHHgb',
