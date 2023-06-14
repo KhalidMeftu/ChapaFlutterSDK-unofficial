@@ -5,7 +5,7 @@ import 'constants/strings.dart';
 
 class Chapa {
   BuildContext context;
-  String publicKey;
+  String privateKey;
   String amount;
   String currency;
   String email;
@@ -19,7 +19,7 @@ class Chapa {
 
   Chapa.paymentParameters({
     required this.context,
-    required this.publicKey,
+    required this.privateKey,
     required this.currency,
     required this.amount,
     required this.email,
@@ -39,8 +39,8 @@ class Chapa {
   }
 
   bool _validateKeys() {
-    if (publicKey.trim().isEmpty) {
-      showErrorToast(ChapaStrings.publicKeyRequired);
+    if (privateKey.trim().isEmpty) {
+      showErrorToast(ChapaStrings.privateKeyRequired);
       return false;
     }
     if (currency.trim().isEmpty) {
@@ -61,7 +61,7 @@ class Chapa {
   }
 
   void initatePayment() async {
-    intilizeMyPayment(context, publicKey, email, phone, amount, currency,
+    intilizeMyPayment(context, privateKey, email, phone, amount, currency,
         firstName, lastName, txRef, title, desc, namedRouteFallBack);
   }
 }

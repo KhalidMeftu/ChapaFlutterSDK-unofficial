@@ -254,11 +254,11 @@ class _CartScreenState extends State<CartScreen> {
           ///
           Chapa.paymentParameters(
             context: context, // context
-            publicKey: 'CHASECK_TEST-',
+            privateKey: 'CHASECK_TEST-',
             currency: 'etb',
             amount: '300',
             email: 'xyz@gmail.com',
-            phone: '911223344',
+            phone: '0911223344',
             firstName: 'testname',
             lastName: 'lastName',
             txRef: '55ttyyy',
